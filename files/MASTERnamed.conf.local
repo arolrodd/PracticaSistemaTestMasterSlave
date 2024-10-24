@@ -6,12 +6,14 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "sistema.test"{
+zone "sistema.test" {
     type master;
-    file "/var/lib/bind/MASTERsistema.test.dns";
-}
+    file "/var/lib/bind/MASTER.sistema.test.dns";
+    allow-transfer { 192.168.57.102; };
+};
 
-zone "X.57.168.192.in-addr-arpa"{
+
+zone "57.168.192.in-addr-arpa"{
     type master;
     file "/var/lib/bind/MASTERsistemaInverso.test.dns";
 }
