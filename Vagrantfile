@@ -16,10 +16,24 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "venus" do |venus|#slave
     venus.vm.network "private_network", ip: "192.168.57.102"
+    venus.vm.provision "shell", inline: <<-SHELL
+      
+      sudo cp -v /vagrant/files/named /etc/default/
+      sudo cp -v /vagrant/files/named.conf.options /etc/bind
+      sudo cp -v /vagrant/files/SLAVEnamed.conf.local /etc/bind/named.conf.local
+    SHELL
+
   end
 
   config.vm.define "tierra" do |tierra|#master
     tierra.vm.network "private_network", ip: "192.168.57.103"
+    tierra.vm.provision "shell", inline: <<-SHELL
+    sudo cp -v /vagrant/files/named /etc/default/
+    sudo cp -v /vagrant/files/named.conf.options /etc/bind
+    sudo cp -v /vagrant/files/MASTERnamed.conf.local /etc/bind/named.conf.local
+    sudo cp -v /vagrant/fies/MASTER.sistema.test.dns /var/lib/bind/db.sistema.test
+    sudo cp -v /vagrant/files/MASTERsistemaInverso.test.dns /var/lib/bind/db.sistema.test.rev
+    SHELL
   end
 
   # Disable automatic box update checking. If you disable this, then
