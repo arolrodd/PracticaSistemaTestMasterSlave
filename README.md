@@ -29,7 +29,7 @@ Practica de despliegue sobre un servidor dns
 
 
     -Configuramos las zonas tanto la directa como la inversa del servidor
-![alt text](/images/imag8.png)
+![alt text](/images/image8.png)
 ![alt text](/images/image9.png)
 
 
