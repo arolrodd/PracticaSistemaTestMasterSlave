@@ -1,29 +1,31 @@
-acl confiables{
-	127.0.0.0/8;
-	192.168.57.0/24;
-}
+acl confiables {
+    127.0.0.0/8;
+    192.168.57.0/24;
+};
 
 options {
-	directory "/var/cache/bind";
+    directory "/var/cache/bind";
 
-	// If there is a firewall between you and nameservers you want
-	// to talk to, you may need to fix the firewall to allow multiple
-	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
 
-	// If your ISP provided one or more IP addresses for stable 
-	// nameservers, you probably want to use them as forwarders.  
-	// Uncomment the following block, and insert the addresses replacing 
-	// the all-0's placeholder.
+	allow-query{confiables;};
+    // Si hay un firewall entre tú y los servidores de nombres a los que
+    // deseas hablar, es posible que debas configurar el firewall para permitir
+    // varios puertos.  Consulta http://www.kb.cert.org/vuls/id/800113
 
-	// forwarders {
-	// 	0.0.0.0;
-	// };
+    // Si tu ISP proporcionó una o más direcciones IP para servidores de nombres
+    // estables, probablemente desees usarlos como reenvíos.  
+    // Descomenta el siguiente bloque e inserta las direcciones reemplazando 
+    // el marcador de posición de todos ceros.
 
-	//========================================================================
-	// If BIND logs error messages about the root key being expired,
-	// you will need to update your keys.  See https://www.isc.org/bind-keys
-	//========================================================================
-	dnssec-validation yes;
+    // forwarders {
+    //     0.0.0.0;
+    // };
 
-	listen-on-v6 { none; };
+    //========================================================================
+    // Si BIND registra mensajes de error sobre la clave raíz que ha expirado,
+    // deberás actualizar tus claves.  Consulta https://www.isc.org/bind-keys
+    //========================================================================
+    dnssec-validation yes;
+
+    listen-on-v6 { none; };
 };

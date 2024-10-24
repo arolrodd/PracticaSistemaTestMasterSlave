@@ -13,9 +13,7 @@ zone "sistema.test" {
 };
 
 
-zone "57.168.192.in-addr-arpa"{
+zone "57.168.192.in-addr.arpa"{
     type master;
     file "/var/lib/bind/MASTERsistemaInverso.test.dns";
-}
-
-
+};
