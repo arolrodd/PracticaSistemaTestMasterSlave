@@ -1,9 +1,8 @@
-;
 ; sistema.test inversa
 ;
 $TTL 86400
 
-@	IN	SOA	sistema.test. root.sistema.test. (
+@	IN	SOA	tierra.sistema.test. root.sistema.test. (
     2024102403		; Serial
     604800		; Refresh
     86400		; Retry
@@ -11,6 +10,10 @@ $TTL 86400
     7200 )		; Negative Cache TTL
 
 @	IN	NS	ns1.sistema.test.
+@	IN	NS	ns2.sistema.test.
 
 ; Registros PTR
 103	IN	PTR	sistema.test.
+102	IN	PTR	venus.sistema.test.
+101	IN	PTR	mercurio.sistema.test.
+104	IN	PTR	marte.sistema.test.

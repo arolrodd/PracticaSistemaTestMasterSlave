@@ -33,4 +33,23 @@ Practica de despliegue sobre un servidor dns
 ![alt text](/images/image9.png)
 
 
-4. Una vez comprobado todos los archivos y hechas las pruebas correspondientes para ver que el servidor funciona correctamente hacemos el commit final y subimos los cambios al repositorio de github
+4. Una vez hecha la configuración procedemos a ejecutar las pruebas necesarias para comprobar que todo este configurado correctamente
+
+    -Registros A
+![alt text](/images/image10.png)
+
+
+    -Resolución inversa de las direcciones ips
+![alt text](/images/image11.png)
+
+
+    -Resolver los alias ns1.sistema.test y ns2.sistema.test
+
+![alt text](/images/image13.png)
+
+
+    -Consultar los servidores NS de sistema.test
+![alt text](/images/image14.png)
+
+    -Consultar servidores MX de sistema.test
+![alt text](/images/image15.png)

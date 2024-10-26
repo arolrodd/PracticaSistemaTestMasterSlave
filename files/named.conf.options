@@ -6,26 +6,17 @@ acl confiables {
 options {
     directory "/var/cache/bind";
 
+    allow-query { confiables; };
+    allow-recursion { confiables; };
 
-	allow-query{confiables;};
-    // Si hay un firewall entre tú y los servidores de nombres a los que
-    // deseas hablar, es posible que debas configurar el firewall para permitir
-    // varios puertos.  Consulta http://www.kb.cert.org/vuls/id/800113
+    forwarders {
+        208.67.222.222;
+    };
 
-    // Si tu ISP proporcionó una o más direcciones IP para servidores de nombres
-    // estables, probablemente desees usarlos como reenvíos.  
-    // Descomenta el siguiente bloque e inserta las direcciones reemplazando 
-    // el marcador de posición de todos ceros.
-
-    // forwarders {
-    //     0.0.0.0;
-    // };
-
-    //========================================================================
-    // Si BIND registra mensajes de error sobre la clave raíz que ha expirado,
-    // deberás actualizar tus claves.  Consulta https://www.isc.org/bind-keys
-    //========================================================================
+    // Validación DNSSEC
     dnssec-validation yes;
 
-    listen-on-v6 { none; };
+    // Escuchar solo en IPv4
+    listen-on { any; };
+    listen-on-v6 { none; }; 
 };
